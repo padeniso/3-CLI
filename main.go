@@ -1,6 +1,10 @@
 package main
 
+import (
+	"./bin"
+)
+
 func main() {
-	binList := []Bin{}
+	binList := []bin.Bin{}
 
 }
