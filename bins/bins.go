@@ -17,7 +17,7 @@ func NewBin(id string, private bool, createdAt time.Time, name string) (*Bin, er
 	if id == "" || name == "" {
 		return nil, errors.New("Incorrect id or name field")
 	}
-	mynewBin := Bin{id: id, private: private, createdAt: time.Now(), name: name}
+	mynewBin := Bin{Id: id, Private: private, CreatedAt: time.Now(), Name: name}
 	return &mynewBin, nil
 
 }

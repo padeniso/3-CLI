@@ -7,7 +7,7 @@ import (
 )
 
 func ReadFromFile(file string) (data []byte, err error) {
-	isJSON := strings.Contains(file, ".json")
+	isJSON := strings.HasSuffix(file, ".json")
 	if !isJSON {
 		fmt.Printf("The file %s is not a JSON file", file)
 		return nil, err

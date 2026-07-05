@@ -2,21 +2,22 @@ package storage
 
 import (
 	"demo/cli/bins"
+	"demo/cli/file"
 	"encoding/json"
 	"fmt"
 )
 
-func JsonToFile(mybin *bins.Bin, file string) ([]byte, error) {
+func JsonToFile(mybin *bins.Bin, filename string) ([]byte, error) {
 	fileContent, err := json.Marshal(&mybin)
 	if err != nil {
 		return nil, err
 	}
-	err = WriteToFile(fileContent, file)
+	err = file.WriteToFile(fileContent, filename)
 }
 
-func ReadBinFromFile(mybin *bins.Bin, file string) (*bins.Bin, error) {
+func ReadBinFromFile(mybin *bins.Bin, filename string) (*bins.Bin, error) {
 	var myBin bins.Bin
-	fileContent, err := ReadFromFile(file)
+	fileContent, err := file.ReadFromFile(filename)
 	if err != nil {
 		return nil, err
 	}
