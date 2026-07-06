@@ -7,12 +7,13 @@ import (
 	"fmt"
 )
 
-func JsonToFile(mybin *bins.Bin, filename string) ([]byte, error) {
+func JsonToFile(mybin *bins.Bin, filename string) error {
 	fileContent, err := json.Marshal(&mybin)
 	if err != nil {
-		return nil, err
+		return err
 	}
 	err = file.WriteToFile(fileContent, filename)
+	return err
 }
 
 func ReadBinFromFile(mybin *bins.Bin, filename string) (*bins.Bin, error) {
@@ -24,6 +25,7 @@ func ReadBinFromFile(mybin *bins.Bin, filename string) (*bins.Bin, error) {
 	err = json.Unmarshal(fileContent, &myBin)
 	if err != nil {
 		fmt.Println("Не удалось разобрать файл data.json")
+		return nil, err
 	}
 	return &myBin, nil
 }
